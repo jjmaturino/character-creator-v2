@@ -1,14 +1,31 @@
 .characterEditor {
   padding-top: 128px;
   padding-bottom: 64px;
+  isolation: isolate;
 }
 
 .maxWidthWrapper {
+  position: relative;
+  top: -100px;
+  z-index: 2;
+
+  @media (min-width: 768px) {
+    top: 0;
+  }
 }
 
 .header {
   width: 60%;
   padding-bottom: 64px;
+
+  position: fixed;
+  top: 0;
+
+  @media (min-width: 768px) {
+    position: static;
+    display: block;
+  }
+
 }
 
 .title {
@@ -22,19 +39,57 @@
 .description {
   font-size: 1.25rem;
   margin: 0;
+
+  display: none;
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
 }
 
 .characterWrapper {
   min-height: 200px;
   max-height: 800px;
   height: 100%;
+  z-index: 1;
 
-  position: fixed;
-  top: 10%;
-  left: 50%;
+  position: relative;
+  top: 100px;
+
+  @media (min-width: 768px) {
+
+    position: fixed;
+    top: 10%;
+    left: 50%;
+  }
 }
 
 
 .controlColumn {
-  width: 50%;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+  overflow-x: auto;
+
+  margin-left: -32px;
+  margin-right: -32px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  @media (min-width: 768px) {
+    display: block;
+    width: 50%;
+  }
+}
+
+.perspectiveWrapper {
+  position: fixed;
+
+  top: 60%;
+  width: 100%;
+  height: 40%;
+  z-index: 0;
+
+  background:hsl(195deg, 20%, 86%);
 }
