@@ -5,8 +5,10 @@
   color: white;
   text-align: center;
 
-  a {
-    color: white;
-  }
+
+}
+
+.footer a {
+  color: inherit;
 }
 
